@@ -2,21 +2,19 @@ import java.util.Arrays;
 
 /**
  * @author jx
- * @description 冒泡排序
- * 稳定排序，平均时间复杂度O(n²)，最好时间复杂度O(n),最坏时间复杂度O(n²)
- * @date 2022-05-25 22:21
+ * @description TODO
+ * @date 2022-05-25 23:48
  **/
-public class BubbleSort {
+public class InsertSort {
     public static void main(String[] args) {
         int arr[] = {2,3,5,1,3,4};
         sort(arr);
-
     }
 
     /*
      * @author jx
      * @decription 如果arr[i]大于arr[j],则交换
-     * @date 2022/5/25 23:54
+     * @date 2022/5/25 23:57
      * @param arr
      * @param i
      * @param j
@@ -33,17 +31,16 @@ public class BubbleSort {
 
     /*
      * @author jx
-     * @decription 排序函数实现
+     * @decription 快排实现
      * @date 2022/5/25 23:55
      * @param arr
      */
-    public static void sort(int [] arr) {
-        for(int i=0; i<=arr.length-1; i++) {
-            for(int j=0; j<arr.length-1-i; j++) {
-                //数组相邻元素比较，大者往后冒泡
-                swap(arr,j,j+1);
+    public static void sort(int[] arr) {
+        for(int i=0; i<arr.length; i++) {
+            for(int j=0; j<i; j++) {
+                swap(arr,j,i);
             }
-            System.out.println("第"+(i+1)+"次排序结果："+Arrays.toString(arr));
+            System.out.println("第"+(i+1)+"次排序结果："+ Arrays.toString(arr));
         }
     }
 
