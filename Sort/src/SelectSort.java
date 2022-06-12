@@ -2,20 +2,20 @@ import java.util.Arrays;
 
 /**
  * @author jx
- * @description 直接插入排序
- * 稳定排序,最好:O(n),平均:O(n²),最差：O(n²)
- * @date 2022-05-25 23:48
+ * @description 选择排序
+ * 不稳定排序,最好O(n²）:,平均O(n²）:,最差O(n²）：
+ * @date 2022-05-26 0:10
  **/
-public class InsertSort {
+public class SelectSort {
     public static void main(String[] args) {
-        int arr[] = {2,3,5,1,3,4};
+        int arr[] = {5,1,2,3,6,4};
         sort(arr);
+        System.out.println(Arrays.toString(arr));
     }
-
     /*
      * @author jx
-     * @decription 如果arr[i]大于arr[j],则交换
-     * @date 2022/5/25 23:57
+     * @decription 交换
+     * @date 2022/6/5 13:39
      * @param arr
      * @param i
      * @param j
@@ -32,19 +32,20 @@ public class InsertSort {
 
     /*
      * @author jx
-     * @decription 快排实现
-     * @date 2022/5/25 23:55
+     * @decription 选择排序实现
+     * @date 2022/6/5 13:39
      * @param arr
      */
     public static void sort(int[] arr) {
         for(int i=0; i<arr.length; i++) {
-            for(int j=0; j<i; j++) {
-                if(arr[i] > arr[j]) {
-                    swap(arr,j,i);
+            int minIndex = i;
+            for(int j=i+1; j<arr.length; j++) {
+                if(arr[minIndex] > arr[j]) {
+                    minIndex = j;
                 }
             }
+            swap(arr,minIndex,i);
             System.out.println("第"+(i+1)+"次排序结果："+ Arrays.toString(arr));
         }
     }
-
 }

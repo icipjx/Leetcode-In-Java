@@ -24,11 +24,11 @@ public class BubbleSort {
     public static void swap(int[] arr,int i, int j) {
         //设置临时变量
         int temp = 0;
-        if(arr[i] > arr[j]) {
-            temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
+
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+
     }
 
     /*
@@ -41,7 +41,9 @@ public class BubbleSort {
         for(int i=0; i<=arr.length-1; i++) {
             for(int j=0; j<arr.length-1-i; j++) {
                 //数组相邻元素比较，大者往后冒泡
-                swap(arr,j,j+1);
+                if(arr[i] > arr[j]) {
+                    swap(arr, j, j + 1);
+                }
             }
             System.out.println("第"+(i+1)+"次排序结果："+Arrays.toString(arr));
         }
